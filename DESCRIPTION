@@ -1,0 +1,11 @@
+Package: jupyter.widgets.base
+Title: Building blocks for 'Jupyter' widgets
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Romain", "François", email = "romain@tada.science", role = c("aut", "cre"))
+  )
+Description: Building blocks for jupyter widgets.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
