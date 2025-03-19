@@ -9,6 +9,9 @@ Layout(...)
 \arguments{
 \item{...}{currently unused}
 }
+\value{
+a \link{jupyter.widget.Layout} object
+}
 \description{
 Layout
 }

@@ -1,7 +1,24 @@
-jupyter.widget.Layout <- R6Class("jupyter.widget.Layout",
+#' Layout
+#'
+#' @param ... currently unused
+#'
+#' @return a [jupyter.widget.Layout] object
+#' @export
+Layout <- function(...) {
+  jupyter.widget.Layout$new(...)
+}
+
+#' Layout class
+#'
+#' @export
+jupyter.widget.Layout <- R6::R6Class("jupyter.widget.Layout",
     public = list(
+
+      #' @field comm
+      #' the comm for the layout
         comm = NULL,
 
+        #' @param ... unused
         initialize = function(...) {
             comm <- CommManager$new_comm("jupyter.widget", "slider layout")
             comm$on_message(function(request) {
@@ -19,8 +36,9 @@ jupyter.widget.Layout <- R6Class("jupyter.widget.Layout",
             self$comm <- comm
         },
 
-        state = function(what) {
-            if (missing(what)) {
+        #' @param name name of the state to retrieve
+        state = function(name) {
+            if (missing(name)) {
                 private$state_
             } else {
                 private$state_[[what]]
@@ -80,12 +98,3 @@ jupyter.widget.Layout <- R6Class("jupyter.widget.Layout",
         )
     )
 )
-
-#' Layout
-#'
-#' @param ... currently unused
-#'
-#' @export
-Layout <- function(...) {
-  jupyter.widget.Layout$new(...)
-}
