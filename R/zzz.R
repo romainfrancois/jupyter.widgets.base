@@ -1,9 +1,9 @@
 #' @import R6
 #' @import hera
-#' @importFrom rlang current_env check_dots_empty caller_env arg_match is_true list2 caller_arg
+#' @import assertthat
 #' @import jsonlite
+#' @importFrom rlang current_env check_dots_empty caller_env arg_match is_true list2 caller_arg
 #' @importFrom glue glue
-#' @importFrom assertthat assert_that
 #' @importFrom cli cli_abort
 NULL
 
