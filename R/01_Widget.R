@@ -140,11 +140,6 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
     update = function(...) {
       state <- list2(...)
 
-      # special case for children
-      if ("children" %in% names(state)) {
-        state$children <- map_chr(children, \(kid) glue("IPY_MODEL_{kid$comm$id}"))
-      }
-
       private$comm_$send(
         data = list(method = "update", state = state, buffer_paths = list())
       )
