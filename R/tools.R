@@ -47,3 +47,7 @@ ensure <- function(x, fun = assertthat::is.string, ..., msg = NULL) {
 
   x
 }
+
+namedlist <- function() {
+  `names<-`(list(), character())
+}
