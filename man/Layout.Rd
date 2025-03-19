@@ -4,10 +4,156 @@
 \alias{Layout}
 \title{Layout}
 \usage{
-Layout(...)
+Layout(
+  align_content = align_content,
+  align_items = align_items,
+  align_self = align_self,
+  border_bottom = border_bottom,
+  border_left = border_left,
+  border_right = border_right,
+  border_top = border_top,
+  bottom = bottom,
+  display = display,
+  flex = flex,
+  flex_flow = flex_flow,
+  grid_area = grid_area,
+  grid_auto_columns = grid_auto_columns,
+  grid_auto_flow = grid_auto_flow,
+  grid_auto_rows = grid_auto_rows,
+  grid_column = grid_column,
+  grid_gap = grid_gap,
+  grid_row = grid_row,
+  grid_template_areas = grid_template_areas,
+  grid_template_columns = grid_template_columns,
+  grid_template_rows = grid_template_rows,
+  height = height,
+  justify_content = justify_content,
+  justify_items = justify_items,
+  left = left,
+  margin = margin,
+  max_height = max_height,
+  max_width = max_width,
+  min_height = min_height,
+  min_width = min_width,
+  object_fit = object_fit,
+  object_position = object_position,
+  order = order,
+  overflow = overflow,
+  padding = padding,
+  right = right,
+  top = top,
+  visibility = visibility,
+  width = width,
+  `_model_module` = `_model_module`,
+  `_model_module_version` = `_model_module_version`,
+  `_model_name` = `_model_name`,
+  `_view_module` = `_view_module`,
+  `_view_count` = `_view_count`,
+  `_view_module_version` = `_view_module_version`,
+  `_view_name` = `_view_name`,
+  ...,
+  error_call = caller_env()
+)
 }
 \arguments{
-\item{...}{currently unused}
+\item{align_content}{The align-content CSS attribute.}
+
+\item{align_items}{The align-items CSS attribute.}
+
+\item{align_self}{The align-self CSS attribute.}
+
+\item{border_bottom}{The border bottom CSS attribute.}
+
+\item{border_left}{The border left CSS attribute.}
+
+\item{border_right}{The border right CSS attribute.}
+
+\item{border_top}{The border top CSS attribute.}
+
+\item{bottom}{The bottom CSS attribute.}
+
+\item{display}{The display CSS attribute.}
+
+\item{flex}{The flex CSS attribute.}
+
+\item{flex_flow}{The flex-flow CSS attribute.}
+
+\item{grid_area}{The grid-area CSS attribute.}
+
+\item{grid_auto_columns}{The grid-auto-columns CSS attribute.}
+
+\item{grid_auto_flow}{The grid-auto-flow CSS attribute.}
+
+\item{grid_auto_rows}{The grid-auto-rows CSS attribute.}
+
+\item{grid_column}{The grid-column CSS attribute.}
+
+\item{grid_gap}{The grid-gap CSS attribute.}
+
+\item{grid_row}{The grid-row CSS attribute.}
+
+\item{grid_template_areas}{The grid-template-areas CSS attribute.}
+
+\item{grid_template_columns}{The grid-template-columns CSS attribute.}
+
+\item{grid_template_rows}{The grid-template-rows CSS attribute.}
+
+\item{height}{The height CSS attribute.}
+
+\item{justify_content}{The justify-content CSS attribute.}
+
+\item{justify_items}{The justify-items CSS attribute.}
+
+\item{left}{The left CSS attribute.}
+
+\item{margin}{The margin CSS attribute.}
+
+\item{max_height}{The max-height CSS attribute.}
+
+\item{max_width}{The max-width CSS attribute.}
+
+\item{min_height}{The min-height CSS attribute.}
+
+\item{min_width}{The min-width CSS attribute.}
+
+\item{object_fit}{The object-fit CSS attribute.}
+
+\item{object_position}{The object-position CSS attribute.}
+
+\item{order}{The order CSS attribute.}
+
+\item{overflow}{The overflow CSS attribute.}
+
+\item{padding}{The padding CSS attribute.}
+
+\item{right}{The right CSS attribute.}
+
+\item{top}{The top CSS attribute.}
+
+\item{visibility}{The visibility CSS attribute.}
+
+\item{width}{The width CSS attribute.}
+
+\item{_model_module}{The namespace of the model.}
+
+\item{_model_module_version}{A semver requirement for namespace version containing the model.}
+
+\item{_model_name}{model name}
+
+\item{_view_module}{view mmodule}
+
+\item{_view_count}{view count}
+
+\item{_view_module_version}{view module version}
+
+\item{_view_name}{view name}
+
+\item{...}{These dots are for future extensions and must be empty.}
+
+\item{error_call}{The execution environment of a currently
+running function, e.g. \code{caller_env()}. The function will be
+mentioned in error messages as the source of the error. See the
+\code{call} argument of \code{\link[rlang:abort]{abort()}} for more information.}
 }
 \value{
 a \link{jupyter.widget.Layout} object

@@ -8,51 +8,186 @@ Layout class
 
 Layout class
 }
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{comm}}{the comm for the layout}
-}
-\if{html}{\out{</div>}}
+\section{Super class}{
+\code{\link[jupyter.widgets.base:jupyter.widget.Widget]{jupyter.widgets.base::jupyter.widget.Widget}} -> \code{jupyter.widget.Layout}
 }
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-jupyter.widget.Layout-new}{\code{jupyter.widget.Layout$new()}}
-\item \href{#method-jupyter.widget.Layout-state}{\code{jupyter.widget.Layout$state()}}
 \item \href{#method-jupyter.widget.Layout-clone}{\code{jupyter.widget.Layout$clone()}}
 }
 }
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="jupyter.widgets.base" data-topic="jupyter.widget.Widget" data-id="on_custom"><a href='../../jupyter.widgets.base/html/jupyter.widget.Widget.html#method-jupyter.widget.Widget-on_custom'><code>jupyter.widgets.base::jupyter.widget.Widget$on_custom()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="jupyter.widgets.base" data-topic="jupyter.widget.Widget" data-id="on_update"><a href='../../jupyter.widgets.base/html/jupyter.widget.Widget.html#method-jupyter.widget.Widget-on_update'><code>jupyter.widgets.base::jupyter.widget.Widget$on_update()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="jupyter.widgets.base" data-topic="jupyter.widget.Widget" data-id="state"><a href='../../jupyter.widgets.base/html/jupyter.widget.Widget.html#method-jupyter.widget.Widget-state'><code>jupyter.widgets.base::jupyter.widget.Widget$state()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="jupyter.widgets.base" data-topic="jupyter.widget.Widget" data-id="update"><a href='../../jupyter.widgets.base/html/jupyter.widget.Widget.html#method-jupyter.widget.Widget-update'><code>jupyter.widgets.base::jupyter.widget.Widget$update()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-jupyter.widget.Layout-new"></a>}}
 \if{latex}{\out{\hypertarget{method-jupyter.widget.Layout-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{jupyter.widget.Layout$new(...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{jupyter.widget.Layout$new(
+  align_content = NULL,
+  align_items = NULL,
+  align_self = NULL,
+  border_bottom = NULL,
+  border_left = NULL,
+  border_right = NULL,
+  border_top = NULL,
+  bottom = NULL,
+  display = NULL,
+  flex = NULL,
+  flex_flow = NULL,
+  grid_area = NULL,
+  grid_auto_columns = NULL,
+  grid_auto_flow = NULL,
+  grid_auto_rows = NULL,
+  grid_column = NULL,
+  grid_gap = NULL,
+  grid_row = NULL,
+  grid_template_areas = NULL,
+  grid_template_columns = NULL,
+  grid_template_rows = NULL,
+  height = NULL,
+  justify_content = NULL,
+  justify_items = NULL,
+  left = NULL,
+  margin = NULL,
+  max_height = NULL,
+  max_width = NULL,
+  min_height = NULL,
+  min_width = NULL,
+  object_fit = NULL,
+  object_position = NULL,
+  order = NULL,
+  overflow = NULL,
+  padding = NULL,
+  right = NULL,
+  top = NULL,
+  visibility = NULL,
+  width = NULL,
+  `_model_module` = "@jupyter-widgets/base",
+  `_model_module_version` = "2.0.0",
+  `_model_name` = "",
+  `_view_module` = "@jupyter-widgets/base",
+  `_view_count` = NULL,
+  `_view_module_version` = "2.0.0",
+  `_view_name` = "",
+  ...,
+  error_call = caller_env()
+)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
+\item{\code{align_content}}{The align-content CSS attribute.}
+
+\item{\code{align_items}}{The align-items CSS attribute.}
+
+\item{\code{align_self}}{The align-self CSS attribute.}
+
+\item{\code{border_bottom}}{The border bottom CSS attribute.}
+
+\item{\code{border_left}}{The border left CSS attribute.}
+
+\item{\code{border_right}}{The border right CSS attribute.}
+
+\item{\code{border_top}}{The border top CSS attribute.}
+
+\item{\code{bottom}}{The bottom CSS attribute.}
+
+\item{\code{display}}{The display CSS attribute.}
+
+\item{\code{flex}}{The flex CSS attribute.}
+
+\item{\code{flex_flow}}{The flex-flow CSS attribute.}
+
+\item{\code{grid_area}}{The grid-area CSS attribute.}
+
+\item{\code{grid_auto_columns}}{The grid-auto-columns CSS attribute.}
+
+\item{\code{grid_auto_flow}}{The grid-auto-flow CSS attribute.}
+
+\item{\code{grid_auto_rows}}{The grid-auto-rows CSS attribute.}
+
+\item{\code{grid_column}}{The grid-column CSS attribute.}
+
+\item{\code{grid_gap}}{The grid-gap CSS attribute.}
+
+\item{\code{grid_row}}{The grid-row CSS attribute.}
+
+\item{\code{grid_template_areas}}{The grid-template-areas CSS attribute.}
+
+\item{\code{grid_template_columns}}{The grid-template-columns CSS attribute.}
+
+\item{\code{grid_template_rows}}{The grid-template-rows CSS attribute.}
+
+\item{\code{height}}{The height CSS attribute.}
+
+\item{\code{justify_content}}{The justify-content CSS attribute.}
+
+\item{\code{justify_items}}{The justify-items CSS attribute.}
+
+\item{\code{left}}{The left CSS attribute.}
+
+\item{\code{margin}}{The margin CSS attribute.}
+
+\item{\code{max_height}}{The max-height CSS attribute.}
+
+\item{\code{max_width}}{The max-width CSS attribute.}
+
+\item{\code{min_height}}{The min-height CSS attribute.}
+
+\item{\code{min_width}}{The min-width CSS attribute.}
+
+\item{\code{object_fit}}{The object-fit CSS attribute.}
+
+\item{\code{object_position}}{The object-position CSS attribute.}
+
+\item{\code{order}}{The order CSS attribute.}
+
+\item{\code{overflow}}{The overflow CSS attribute.}
+
+\item{\code{padding}}{The padding CSS attribute.}
+
+\item{\code{right}}{The right CSS attribute.}
+
+\item{\code{top}}{The top CSS attribute.}
+
+\item{\code{visibility}}{The visibility CSS attribute.}
+
+\item{\code{width}}{The width CSS attribute.}
+
+\item{\code{_model_module}}{The namespace of the model.}
+
+\item{\code{_model_module_version}}{A semver requirement for namespace version containing the model.}
+
+\item{\code{_model_name}}{model name}
+
+\item{\code{_view_module}}{view mmodule}
+
+\item{\code{_view_count}}{view count}
+
+\item{\code{_view_module_version}}{view module version}
+
+\item{\code{_view_name}}{view name}
+
 \item{\code{...}}{unused}
-}
-\if{html}{\out{</div>}}
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-jupyter.widget.Layout-state"></a>}}
-\if{latex}{\out{\hypertarget{method-jupyter.widget.Layout-state}{}}}
-\subsection{Method \code{state()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{jupyter.widget.Layout$state(name)}\if{html}{\out{</div>}}
-}
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{name}}{name of the state to retrieve}
+\item{\code{error_call}}{see \code{\link[rlang:args_error_context]{rlang::args_error_context()}}}
 }
 \if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+a new \code{jupyter.widget.Layout} object
 }
 }
 \if{html}{\out{<hr>}}
