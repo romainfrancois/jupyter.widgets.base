@@ -1,137 +1,14 @@
 #' @title Layout
 #'
-#' @param align_content The align-content CSS attribute.
-#' @param align_items The align-items CSS attribute.
-#' @param align_self The align-self CSS attribute.
-#' @param border_bottom The border bottom CSS attribute.
-#' @param border_left The border left CSS attribute.
-#' @param border_right The border right CSS attribute.
-#' @param border_top The border top CSS attribute.
-#' @param bottom The bottom CSS attribute.
-#' @param display The display CSS attribute.
-#' @param flex The flex CSS attribute.
-#' @param flex_flow The flex-flow CSS attribute.
-#' @param grid_area The grid-area CSS attribute.
-#' @param grid_auto_columns The grid-auto-columns CSS attribute.
-#' @param grid_auto_flow The grid-auto-flow CSS attribute.
-#' @param grid_auto_rows The grid-auto-rows CSS attribute.
-#' @param grid_column The grid-column CSS attribute.
-#' @param grid_gap The grid-gap CSS attribute.
-#' @param grid_row The grid-row CSS attribute.
-#' @param grid_template_areas The grid-template-areas CSS attribute.
-#' @param grid_template_columns The grid-template-columns CSS attribute.
-#' @param grid_template_rows The grid-template-rows CSS attribute.
-#' @param height The height CSS attribute.
-#' @param justify_content The justify-content CSS attribute.
-#' @param justify_items The justify-items CSS attribute.
-#' @param left The left CSS attribute.
-#' @param margin The margin CSS attribute.
-#' @param max_height The max-height CSS attribute.
-#' @param max_width The max-width CSS attribute.
-#' @param min_height The min-height CSS attribute.
-#' @param min_width The min-width CSS attribute.
-#' @param object_fit The object-fit CSS attribute.
-#' @param object_position The object-position CSS attribute.
-#' @param order The order CSS attribute.
-#' @param overflow The overflow CSS attribute.
-#' @param padding The padding CSS attribute.
-#' @param right The right CSS attribute.
-#' @param top The top CSS attribute.
-#' @param visibility The visibility CSS attribute.
-#' @param width The width CSS attribute.
-#' @inheritParams Widget
+#' @param ... See [jupyter.widget.Layout$initialize]
+#' @inheritParams rlang::args_error_context
 #'
 #' @return a new `jupyter.widget.Layout` object
 #'
 #' @export
-Layout <- function(
-  # Layout
-  align_content = NULL,
-  align_items = NULL,
-  align_self = NULL,
-  border_bottom = NULL,
-  border_left = NULL,
-  border_right = NULL,
-  border_top = NULL,
-  bottom = NULL,
-  display = NULL,
-  flex = NULL,
-  flex_flow = NULL,
-  grid_area = NULL,
-  grid_auto_columns = NULL,
-  grid_auto_flow = NULL,
-  grid_auto_rows = NULL,
-  grid_column = NULL,
-  grid_gap = NULL,
-  grid_row = NULL,
-  grid_template_areas = NULL,
-  grid_template_columns = NULL,
-  grid_template_rows = NULL,
-  height = NULL,
-  justify_content = NULL,
-  justify_items = NULL,
-  left = NULL,
-  margin = NULL,
-  max_height = NULL,
-  max_width = NULL,
-  min_height = NULL,
-  min_width = NULL,
-  object_fit = NULL,
-  object_position = NULL,
-  order = NULL,
-  overflow = NULL,
-  padding = NULL,
-  right = NULL,
-  top = NULL,
-  visibility = NULL,
-  width = NULL,
-
-  ...,
-  error_call = caller_env()
-) {
-  jupyter.widget.Layout$new(
-    align_content = NULL,
-    align_items = NULL,
-    align_self = NULL,
-    border_bottom = NULL,
-    border_left = NULL,
-    border_right = NULL,
-    border_top = NULL,
-    bottom = NULL,
-    display = NULL,
-    flex = NULL,
-    flex_flow = NULL,
-    grid_area = NULL,
-    grid_auto_columns = NULL,
-    grid_auto_flow = NULL,
-    grid_auto_rows = NULL,
-    grid_column = NULL,
-    grid_gap = NULL,
-    grid_row = NULL,
-    grid_template_areas = NULL,
-    grid_template_columns = NULL,
-    grid_template_rows = NULL,
-    height = NULL,
-    justify_content = NULL,
-    justify_items = NULL,
-    left = NULL,
-    margin = NULL,
-    max_height = NULL,
-    max_width = NULL,
-    min_height = NULL,
-    min_width = NULL,
-    object_fit = NULL,
-    object_position = NULL,
-    order = NULL,
-    overflow = NULL,
-    padding = NULL,
-    right = NULL,
-    top = NULL,
-    visibility = NULL,
-    width = NULL,
-  )
+Layout <- function(..., error_call = current_env()) {
+  jupyter.widget.Layout$new(..., error_call = error_call)
 }
-
 
 #' Layout class
 #'
