@@ -1,3 +1,6 @@
+#' @include Widget.R
+NULL
+
 #' Layout
 #'
 #' @param ... See the constructor for [jupyter.widget.Layout]

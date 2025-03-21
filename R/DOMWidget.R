@@ -1,3 +1,8 @@
+#' @include Widget.R
+#' @include Style.R
+#' @include Layout.R
+NULL
+
 #' A DOM Widget
 #'
 #' @param layout a [Layout()]

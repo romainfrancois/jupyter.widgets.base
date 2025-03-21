@@ -1,3 +1,6 @@
+#' @include Widget.R
+NULL
+
 #' Style
 #'
 #' @inheritParams Widget
