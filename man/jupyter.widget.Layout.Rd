@@ -159,7 +159,7 @@ Layout class
 
 \item{\code{width}}{The width CSS attribute.}
 
-\item{\code{...}}{unused}
+\item{\code{...}}{additional parameters for \link{jupyter.widget.Widget}}
 
 \item{\code{error_call}}{See \code{\link[rlang:args_error_context]{rlang::args_error_context()}}}
 }

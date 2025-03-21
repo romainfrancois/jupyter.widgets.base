@@ -7,7 +7,7 @@
 Layout(..., error_call = current_env())
 }
 \arguments{
-\item{...}{See \link{jupyter.widget.Layout$initialize}}
+\item{...}{See the constructor for \link{jupyter.widget.Layout}}
 
 \item{error_call}{The execution environment of a currently
 running function, e.g. \code{caller_env()}. The function will be

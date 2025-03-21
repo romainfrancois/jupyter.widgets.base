@@ -1,6 +1,6 @@
 #' Layout
 #'
-#' @param ... See [jupyter.widget.Layout$initialize]
+#' @param ... See the constructor for [jupyter.widget.Layout]
 #' @inheritParams rlang::args_error_context
 #'
 #' @return a new `jupyter.widget.Layout` object
@@ -55,7 +55,7 @@ jupyter.widget.Layout <- R6::R6Class("jupyter.widget.Layout", inherit = jupyter.
       #' @param top The top CSS attribute.
       #' @param visibility The visibility CSS attribute.
       #' @param width The width CSS attribute.
-      #' @param ... unused
+      #' @param ... additional parameters for [jupyter.widget.Widget]
       #' @param error_call See [rlang::args_error_context()]
       initialize = function(
         # Layout
