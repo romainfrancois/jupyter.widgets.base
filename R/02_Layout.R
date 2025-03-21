@@ -1,153 +1,13 @@
 #' Layout
 #'
-#' @param align_content The align-content CSS attribute.
-#' @param align_items The align-items CSS attribute.
-#' @param align_self The align-self CSS attribute.
-#' @param border_bottom The border bottom CSS attribute.
-#' @param border_left The border left CSS attribute.
-#' @param border_right The border right CSS attribute.
-#' @param border_top The border top CSS attribute.
-#' @param bottom The bottom CSS attribute.
-#' @param display The display CSS attribute.
-#' @param flex The flex CSS attribute.
-#' @param flex_flow The flex-flow CSS attribute.
-#' @param grid_area The grid-area CSS attribute.
-#' @param grid_auto_columns The grid-auto-columns CSS attribute.
-#' @param grid_auto_flow The grid-auto-flow CSS attribute.
-#' @param grid_auto_rows The grid-auto-rows CSS attribute.
-#' @param grid_column The grid-column CSS attribute.
-#' @param grid_gap The grid-gap CSS attribute.
-#' @param grid_row The grid-row CSS attribute.
-#' @param grid_template_areas The grid-template-areas CSS attribute.
-#' @param grid_template_columns The grid-template-columns CSS attribute.
-#' @param grid_template_rows The grid-template-rows CSS attribute.
-#' @param height The height CSS attribute.
-#' @param justify_content The justify-content CSS attribute.
-#' @param justify_items The justify-items CSS attribute.
-#' @param left The left CSS attribute.
-#' @param margin The margin CSS attribute.
-#' @param max_height The max-height CSS attribute.
-#' @param max_width The max-width CSS attribute.
-#' @param min_height The min-height CSS attribute.
-#' @param min_width The min-width CSS attribute.
-#' @param object_fit The object-fit CSS attribute.
-#' @param object_position The object-position CSS attribute.
-#' @param order The order CSS attribute.
-#' @param overflow The overflow CSS attribute.
-#' @param padding The padding CSS attribute.
-#' @param right The right CSS attribute.
-#' @param top The top CSS attribute.
-#' @param visibility The visibility CSS attribute.
-#' @param width The width CSS attribute.
+#' @param ... See the constructor for [jupyter.widget.Layout]
+#' @inheritParams rlang::args_error_context
 #'
-#' @inheritParams Widget
+#' @return a new `jupyter.widget.Layout` object
 #'
-#' @return a [jupyter.widget.Layout] object
 #' @export
-Layout <- function(
-  # Layout
-  align_content = align_content,
-  align_items = align_items,
-  align_self = align_self,
-  border_bottom = border_bottom,
-  border_left = border_left,
-  border_right = border_right,
-  border_top = border_top,
-  bottom = bottom,
-  display = display,
-  flex = flex,
-  flex_flow = flex_flow,
-  grid_area = grid_area,
-  grid_auto_columns = grid_auto_columns,
-  grid_auto_flow = grid_auto_flow,
-  grid_auto_rows = grid_auto_rows,
-  grid_column = grid_column,
-  grid_gap = grid_gap,
-  grid_row = grid_row,
-  grid_template_areas = grid_template_areas,
-  grid_template_columns = grid_template_columns,
-  grid_template_rows = grid_template_rows,
-  height = height,
-  justify_content = justify_content,
-  justify_items = justify_items,
-  left = left,
-  margin = margin,
-  max_height = max_height,
-  max_width = max_width,
-  min_height = min_height,
-  min_width = min_width,
-  object_fit = object_fit,
-  object_position = object_position,
-  order = order,
-  overflow = overflow,
-  padding = padding,
-  right = right,
-  top = top,
-  visibility = visibility,
-  width = width,
-
-  # Widget
-  `_model_module` = `_model_module`,
-  `_model_module_version` = `_model_module_version`,
-  `_model_name` = `_model_name`,
-  `_view_module` = `_view_module`,
-  `_view_count` = `_view_count`,
-  `_view_module_version` = `_view_module_version`,
-  `_view_name` = `_view_name`,
-  ...,
-  error_call = caller_env()
-) {
-  jupyter.widget.Layout$new(
-    align_content = NULL,
-    align_items = NULL,
-    align_self = NULL,
-    border_bottom = NULL,
-    border_left = NULL,
-    border_right = NULL,
-    border_top = NULL,
-    bottom = NULL,
-    display = NULL,
-    flex = NULL,
-    flex_flow = NULL,
-    grid_area = NULL,
-    grid_auto_columns = NULL,
-    grid_auto_flow = NULL,
-    grid_auto_rows = NULL,
-    grid_column = NULL,
-    grid_gap = NULL,
-    grid_row = NULL,
-    grid_template_areas = NULL,
-    grid_template_columns = NULL,
-    grid_template_rows = NULL,
-    height = NULL,
-    justify_content = NULL,
-    justify_items = NULL,
-    left = NULL,
-    margin = NULL,
-    max_height = NULL,
-    max_width = NULL,
-    min_height = NULL,
-    min_width = NULL,
-    object_fit = NULL,
-    object_position = NULL,
-    order = NULL,
-    overflow = NULL,
-    padding = NULL,
-    right = NULL,
-    top = NULL,
-    visibility = NULL,
-    width = NULL,
-
-    # Widget
-    `_model_module` = '@jupyter-widgets/base',
-    `_model_module_version` = "2.0.0",
-    `_model_name` = "",
-    `_view_module` = '@jupyter-widgets/base',
-    `_view_count` = NULL,
-    `_view_module_version` = "2.0.0",
-    `_view_name` = "",
-
-  )
+Layout <- function(..., error_call = current_env()) {
+  jupyter.widget.Layout$new(..., error_call = error_call)
 }
 
 #' Layout class
@@ -195,19 +55,8 @@ jupyter.widget.Layout <- R6::R6Class("jupyter.widget.Layout", inherit = jupyter.
       #' @param top The top CSS attribute.
       #' @param visibility The visibility CSS attribute.
       #' @param width The width CSS attribute.
-      #'
-      #' @param _model_module The namespace of the model.
-      #' @param _model_module_version A semver requirement for namespace version containing the model.
-      #' @param _model_name model name
-      #' @param _view_module view mmodule
-      #' @param _view_count view count
-      #' @param _view_module_version view module version
-      #' @param _view_name view name
-      #'
-      #' @param ... unused
-      #' @param error_call see [rlang::args_error_context()]
-      #'
-      #' @return a new `jupyter.widget.Layout` object
+      #' @param ... additional parameters for [jupyter.widget.Widget]
+      #' @param error_call See [rlang::args_error_context()]
       initialize = function(
         # Layout
         align_content = NULL,
@@ -249,16 +98,6 @@ jupyter.widget.Layout <- R6::R6Class("jupyter.widget.Layout", inherit = jupyter.
         top = NULL,
         visibility = NULL,
         width = NULL,
-
-        # Widget
-        `_model_module` = '@jupyter-widgets/base',
-        `_model_module_version` = "2.0.0",
-        `_model_name` = "",
-        `_view_module` = '@jupyter-widgets/base',
-        `_view_count` = NULL,
-        `_view_module_version` = "2.0.0",
-        `_view_name` = "",
-
         ...,
         error_call = caller_env()
       ) {
@@ -307,62 +146,16 @@ jupyter.widget.Layout <- R6::R6Class("jupyter.widget.Layout", inherit = jupyter.
 
         super$initialize(
           # Widget
-          `_model_module` = `_model_module`,
-          `_model_module_version` = `_model_module_version`,
-          `_model_name` = `_model_name`,
-          `_view_module` = `_view_module`,
-          `_view_count` = `_view_count`,
-          `_view_module_version` = `_view_module_version`,
-          `_view_name` = `_view_name`,
-
+          `_model_module` = '@jupyter-widgets/base',
+          `_model_module_version` = "2.0.0",
+          `_model_name` = "LayoutModel",
+          `_view_module` = '@jupyter-widgets/base',
+          `_view_count` = NULL,
+          `_view_module_version` = "2.0.0",
+          `_view_name` = "LayoutView",
           ...,
           error_call = error_call
         )
       }
-    ),
-
-    private = list(
-
-      state_ = list(
-        "align_content" = NULL,
-        "align_items" = NULL,
-        "align_self" = NULL,
-        "border_bottom" = NULL,
-        "border_left" = NULL,
-        "border_right" = NULL,
-        "border_top" = NULL,
-        "bottom" = NULL,
-        "display" = NULL,
-        "flex" = NULL,
-        "flex_flow" = NULL,
-        "grid_area" = NULL,
-        "grid_auto_columns" = NULL,
-        "grid_auto_flow" = NULL,
-        "grid_auto_rows" = NULL,
-        "grid_column" = NULL,
-        "grid_gap" = NULL,
-        "grid_row" = NULL,
-        "grid_template_areas" = NULL,
-        "grid_template_columns" = NULL,
-        "grid_template_rows" = NULL,
-        "height" = NULL,
-        "justify_content" = NULL,
-        "justify_items" = NULL,
-        "left" = NULL,
-        "margin" = NULL,
-        "max_height" = NULL,
-        "max_width" = NULL,
-        "min_height" = NULL,
-        "min_width" = NULL,
-        "object_fit" = NULL,
-        "object_position" = NULL,
-        "order" = NULL,
-        "overflow" = NULL,
-        "padding" = NULL,
-        "right" = NULL,
-        "top" = NULL,
-        "visibility" = NULL,
-        "width" = NULL
-      )
     )
 )
