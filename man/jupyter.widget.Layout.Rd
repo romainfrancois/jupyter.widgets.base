@@ -2,8 +2,10 @@
 % Please edit documentation in R/02_Layout.R
 \name{jupyter.widget.Layout}
 \alias{jupyter.widget.Layout}
-\title{Constructor}
+\title{Layout class}
 \description{
+Layout class
+
 Layout class
 }
 \section{Super class}{

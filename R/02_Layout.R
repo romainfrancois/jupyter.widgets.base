@@ -1,4 +1,4 @@
-#' @title Layout
+#' Layout
 #'
 #' @param ... See [jupyter.widget.Layout$initialize]
 #' @inheritParams rlang::args_error_context
@@ -16,8 +16,6 @@ Layout <- function(..., error_call = current_env()) {
 jupyter.widget.Layout <- R6::R6Class("jupyter.widget.Layout", inherit = jupyter.widget.Widget,
     public = list(
 
-      #' @title Constructor
-      #'
       #' @param align_content The align-content CSS attribute.
       #' @param align_items The align-items CSS attribute.
       #' @param align_self The align-self CSS attribute.
@@ -59,7 +57,7 @@ jupyter.widget.Layout <- R6::R6Class("jupyter.widget.Layout", inherit = jupyter.
       #' @param width The width CSS attribute.
       #' @param ... unused
       #' @param error_call See [rlang::args_error_context()]
-    initialize = function(
+      initialize = function(
         # Layout
         align_content = NULL,
         align_items = NULL,
