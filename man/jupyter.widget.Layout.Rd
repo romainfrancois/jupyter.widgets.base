@@ -2,10 +2,8 @@
 % Please edit documentation in R/02_Layout.R
 \name{jupyter.widget.Layout}
 \alias{jupyter.widget.Layout}
-\title{Layout class}
+\title{Constructor}
 \description{
-Layout class
-
 Layout class
 }
 \section{Super class}{
@@ -73,13 +71,6 @@ Layout class
   top = NULL,
   visibility = NULL,
   width = NULL,
-  `_model_module` = "@jupyter-widgets/base",
-  `_model_module_version` = "2.0.0",
-  `_model_name` = "",
-  `_view_module` = "@jupyter-widgets/base",
-  `_view_count` = NULL,
-  `_view_module_version` = "2.0.0",
-  `_view_name` = "",
   ...,
   error_call = caller_env()
 )}\if{html}{\out{</div>}}
@@ -166,28 +157,11 @@ Layout class
 
 \item{\code{width}}{The width CSS attribute.}
 
-\item{\code{_model_module}}{The namespace of the model.}
-
-\item{\code{_model_module_version}}{A semver requirement for namespace version containing the model.}
-
-\item{\code{_model_name}}{model name}
-
-\item{\code{_view_module}}{view mmodule}
-
-\item{\code{_view_count}}{view count}
-
-\item{\code{_view_module_version}}{view module version}
-
-\item{\code{_view_name}}{view name}
-
 \item{\code{...}}{unused}
 
-\item{\code{error_call}}{see \code{\link[rlang:args_error_context]{rlang::args_error_context()}}}
+\item{\code{error_call}}{See \code{\link[rlang:args_error_context]{rlang::args_error_context()}}}
 }
 \if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-a new \code{jupyter.widget.Layout} object
 }
 }
 \if{html}{\out{<hr>}}

@@ -5,52 +5,45 @@
 \title{Layout}
 \usage{
 Layout(
-  align_content = align_content,
-  align_items = align_items,
-  align_self = align_self,
-  border_bottom = border_bottom,
-  border_left = border_left,
-  border_right = border_right,
-  border_top = border_top,
-  bottom = bottom,
-  display = display,
-  flex = flex,
-  flex_flow = flex_flow,
-  grid_area = grid_area,
-  grid_auto_columns = grid_auto_columns,
-  grid_auto_flow = grid_auto_flow,
-  grid_auto_rows = grid_auto_rows,
-  grid_column = grid_column,
-  grid_gap = grid_gap,
-  grid_row = grid_row,
-  grid_template_areas = grid_template_areas,
-  grid_template_columns = grid_template_columns,
-  grid_template_rows = grid_template_rows,
-  height = height,
-  justify_content = justify_content,
-  justify_items = justify_items,
-  left = left,
-  margin = margin,
-  max_height = max_height,
-  max_width = max_width,
-  min_height = min_height,
-  min_width = min_width,
-  object_fit = object_fit,
-  object_position = object_position,
-  order = order,
-  overflow = overflow,
-  padding = padding,
-  right = right,
-  top = top,
-  visibility = visibility,
-  width = width,
-  `_model_module` = `_model_module`,
-  `_model_module_version` = `_model_module_version`,
-  `_model_name` = `_model_name`,
-  `_view_module` = `_view_module`,
-  `_view_count` = `_view_count`,
-  `_view_module_version` = `_view_module_version`,
-  `_view_name` = `_view_name`,
+  align_content = NULL,
+  align_items = NULL,
+  align_self = NULL,
+  border_bottom = NULL,
+  border_left = NULL,
+  border_right = NULL,
+  border_top = NULL,
+  bottom = NULL,
+  display = NULL,
+  flex = NULL,
+  flex_flow = NULL,
+  grid_area = NULL,
+  grid_auto_columns = NULL,
+  grid_auto_flow = NULL,
+  grid_auto_rows = NULL,
+  grid_column = NULL,
+  grid_gap = NULL,
+  grid_row = NULL,
+  grid_template_areas = NULL,
+  grid_template_columns = NULL,
+  grid_template_rows = NULL,
+  height = NULL,
+  justify_content = NULL,
+  justify_items = NULL,
+  left = NULL,
+  margin = NULL,
+  max_height = NULL,
+  max_width = NULL,
+  min_height = NULL,
+  min_width = NULL,
+  object_fit = NULL,
+  object_position = NULL,
+  order = NULL,
+  overflow = NULL,
+  padding = NULL,
+  right = NULL,
+  top = NULL,
+  visibility = NULL,
+  width = NULL,
   ...,
   error_call = caller_env()
 )
@@ -134,20 +127,6 @@ Layout(
 
 \item{width}{The width CSS attribute.}
 
-\item{_model_module}{The namespace of the model.}
-
-\item{_model_module_version}{A semver requirement for namespace version containing the model.}
-
-\item{_model_name}{model name}
-
-\item{_view_module}{view mmodule}
-
-\item{_view_count}{view count}
-
-\item{_view_module_version}{view module version}
-
-\item{_view_name}{view name}
-
 \item{...}{These dots are for future extensions and must be empty.}
 
 \item{error_call}{The execution environment of a currently
@@ -156,7 +135,7 @@ mentioned in error messages as the source of the error. See the
 \code{call} argument of \code{\link[rlang:abort]{abort()}} for more information.}
 }
 \value{
-a \link{jupyter.widget.Layout} object
+a new \code{jupyter.widget.Layout} object
 }
 \description{
 Layout
