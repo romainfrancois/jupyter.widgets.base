@@ -19,3 +19,11 @@ Imports:
     jsonlite,
     R6,
     rlang
+Collate: 
+    'Widget.R'
+    'Layout.R'
+    'Style.R'
+    'DOMWidget.R'
+    'mime_bundle.R'
+    'tools.R'
+    'zzz.R'
