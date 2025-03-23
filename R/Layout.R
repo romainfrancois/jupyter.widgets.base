@@ -1,20 +1,9 @@
 #' @include Widget.R
 NULL
 
-#' Layout
-#'
-#' @param ... See the constructor for [jupyter.widget.Layout]
-#' @inheritParams rlang::args_error_context
-#'
-#' @return a new `jupyter.widget.Layout` object
-#'
-#' @export
-Layout <- function(..., error_call = current_env()) {
-  jupyter.widget.Layout$new(..., error_call = error_call)
-}
-
 #' Layout class
 #'
+#' @rdname Layout
 #' @export
 jupyter.widget.Layout <- R6::R6Class("jupyter.widget.Layout", inherit = jupyter.widget.Widget,
     public = list(
@@ -162,3 +151,11 @@ jupyter.widget.Layout <- R6::R6Class("jupyter.widget.Layout", inherit = jupyter.
       }
     )
 )
+
+
+#' @param ... See constructor for the `jupyter.widgets.Layout` class
+#' @inheritParams rlang::args_error_context
+#'
+#' @rdname Layout
+#' @export
+Layout <- factory(jupyter.widget.Layout)

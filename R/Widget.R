@@ -1,47 +1,9 @@
-#' Widget
-#'
-#' @param _model_module The namespace of the model.
-#' @param _model_module_version A semver requirement for namespace version containing the model.
-#' @param _model_name model name
-#' @param _view_module view mmodule
-#' @param _view_count view count
-#' @param _view_module_version view module version
-#' @param _view_name view name
-#'
-#' @inheritParams rlang::args_dots_empty
-#' @inheritParams rlang::args_error_context
-#'
-#' @return a [jupyter.widget.Widget] object
-#'
-#' @export
-Widget <- function(
-  `_model_module` = '@jupyter-widgets/base',
-  `_model_module_version` = "2.0.0",
-  `_model_name` = "",
-  `_view_module` = '@jupyter-widgets/base',
-  `_view_count` = NULL,
-  `_view_module_version` = "2.0.0",
-  `_view_name` = "",
-
-  ...,
-  error_call = caller_env()
-) {
-  jupyter.widget.Widget$new(
-    # Widget
-    `_model_module` = `_model_module`,
-    `_model_module_version` = `_model_module_version`,
-    `_model_name` = `_model_name`,
-    `_view_count` = `_view_count`,
-    `_view_module_version` = `_view_module_version`,
-    `_view_name` = `_view_name`,
-    ...,
-    error_call = error_call
-  )
-
-}
+#' @include factory.R
+NULL
 
 #' Base class for jupyter widgets
 #'
+#' @rdname Widget
 #' @export
 jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
   public = list(
@@ -210,3 +172,13 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
     `_view_name`            = function() private$state_[["_view_name"]]
   )
 )
+
+#' Widget
+#'
+#' @param ... See constructor for `jupyter.widgets.Widget`
+#' @inheritParams rlang::args_error_context
+#'
+#' @return a [jupyter.widget.Widget] object
+#'
+#' @export
+Widget <- factory(jupyter.widgets.Widget)

@@ -3,63 +3,9 @@
 #' @include Layout.R
 NULL
 
-#' A DOM Widget
-#'
-#' @param layout a [Layout()]
-#' @param style a [Style()]
-#'
-#' @param tabbable is the widget tabbable
-#' @param tooltip tooltip
-#' @param _dom_classes CSS classes applied to widget DOM element
-#'
-#' @inheritParams Widget
-#' @return a [jupyter.widget.DOMWidget] object
-#'
-#' @export
-DOMWidget <- function(
-    # DOMWidget
-    layout = Layout(),
-    style = NULL,
-    tabbable = FALSE,
-    tooltip = "",
-    `_dom_classes` = character(),
-
-    # Widget
-    `_model_module` = '@jupyter-widgets/base',
-    `_model_module_version` = "2.0.0",
-    `_model_name` = "",
-    `_view_module` = '@jupyter-widgets/base',
-    `_view_count` = NULL,
-    `_view_module_version` = "2.0.0",
-    `_view_name` = "",
-
-    ...,
-    error_call = caller_env()
-  ) {
-  jupyter.widget.DOMWidget$new(
-    # DOMWidget
-    layout = layout,
-    style = style,
-    tabbable = tabbable,
-    tooltip = tooltip,
-    `_dom_classes` = `_dom_classes`,
-
-    # Widget
-    `_model_module` = `_model_module`,
-    `_model_module_version` = `_model_module_version`,
-    `_model_name` = `_model_name`,
-    `_view_module` = `_view_module`,
-    `_view_count` = `_view_count`,
-    `_view_module_version` = `_view_module_version`,
-    `_view_name` = `_view_name`,
-
-    ...,
-    error_call = error_call
-  )
-}
-
 #' a DOM Widget
 #'
+#' @rdname DOMWidget
 #' @export
 jupyter.widget.DOMWidget <- R6Class("jupyter.widget.DOMWidget",
   inherit = jupyter.widget.Widget,
@@ -71,6 +17,7 @@ jupyter.widget.DOMWidget <- R6Class("jupyter.widget.DOMWidget",
     #' @param tabbable is the widget tabbable
     #' @param tooltip tooltip
     #' @param _dom_classes CSS classes applied to widget DOM element
+    #'
     #' @param _model_module The namespace of the model.
     #' @param _model_module_version A semver requirement for namespace version containing the model.
     #' @param _model_name model name
@@ -117,13 +64,13 @@ jupyter.widget.DOMWidget <- R6Class("jupyter.widget.DOMWidget",
 
       super$initialize(
         # Widget
-        `_model_module` = unbox(`_model_module`),
-        `_model_module_version` = unbox(`_model_module_version`),
-        `_model_name` = unbox(`_model_name`),
-        `_view_module` = unbox(`_view_module`),
+        `_model_module` = `_model_module`,
+        `_model_module_version` = `_model_module_version`,
+        `_model_name` = `_model_name`,
+        `_view_module` = `_view_module`,
         `_view_count` = `_view_count`,
-        `_view_module_version` = unbox(`_view_module_version`),
-        `_view_name` = unbox(`_view_name`),
+        `_view_module_version` = `_view_module_version`,
+        `_view_name` = `_view_name`,
 
         ...,
         error_call = error_call
@@ -173,3 +120,11 @@ jupyter.widget.DOMWidget <- R6Class("jupyter.widget.DOMWidget",
     style_  = NULL
   )
 )
+
+#' DOMWidget
+#'
+#' @param ... See constructor for `jupyter.widgets.DOMWidget`
+#' @inheritParams rlang::args_error_context
+#'
+#' @export
+DOMWidget <- factory(jupyter.widgets.DOMWidget)
