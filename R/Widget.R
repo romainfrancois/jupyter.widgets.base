@@ -1,8 +1,5 @@
-factory <- function(class) {
-  function(..., error_call = current_env()) {
-    class$new(..., error_call = error_call)
-  }
-}
+#' @include factory.R
+NULL
 
 #' Base class for jupyter widgets
 #'
