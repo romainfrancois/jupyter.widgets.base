@@ -1,40 +1,9 @@
 #' @include Widget.R
 NULL
 
-#' Style
+#' Style class
 #'
-#' @inheritParams Widget
-#'
-#' @export
-Style <- function(
-  # Widget
-  `_model_module` = '@jupyter-widgets/base',
-  `_model_module_version` = "2.0.0",
-  `_model_name` = "",
-  `_view_module` = '@jupyter-widgets/base',
-  `_view_count` = NULL,
-  `_view_module_version` = "2.0.0",
-  `_view_name` = "",
-
-  # Widget
-  ...,
-  error_call = caller_env()
-){
-  jupyter.widget.Style$new(
-    `_model_module` = `_model_module`,
-    `_model_module_version` = `_model_module_version`,
-    `_model_name` = `_model_name`,
-    `_view_module` = `_view_module`,
-    `_view_count` = `_view_count`,
-    `_view_module_version` = `_view_module_version`,
-    `_view_name` = `_view_name`,
-    ...,
-    error_call = error_call
-  )
-}
-
-#' Sytle class
-#'
+#' @rdname Style
 #' @export
 jupyter.widget.Style <- R6Class("jupyter.widget.Style", inherit = jupyter.widget.Widget,
   public = list(
@@ -78,3 +47,11 @@ jupyter.widget.Style <- R6Class("jupyter.widget.Style", inherit = jupyter.widget
     }
   )
 )
+
+#' Style
+#'
+#' @param ... See constructor for `jupyter.widgets.Style`
+#' @inheritParams rlang::args_error_context
+#'
+#' @export
+Style <- factory(jupyter.widgets.Style)
