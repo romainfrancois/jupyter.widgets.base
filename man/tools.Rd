@@ -5,6 +5,7 @@
 \alias{default_or}
 \alias{null_or}
 \alias{arg_match_or_empty}
+\alias{arg_match_or_null}
 \alias{ensure}
 \title{update list}
 \usage{
@@ -15,6 +16,15 @@ default_or(default, fun)
 null_or(fun)
 
 arg_match_or_empty(
+  arg,
+  values = NULL,
+  ...,
+  multiple = FALSE,
+  error_arg = caller_arg(arg),
+  error_call = caller_env()
+)
+
+arg_match_or_null(
   arg,
   values = NULL,
   ...,
