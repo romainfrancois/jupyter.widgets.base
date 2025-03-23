@@ -1,3 +1,9 @@
+factory <- function(class) {
+  function(..., error_call = current_env()) {
+    class$new(..., error_call = error_call)
+  }
+}
+
 #' Widget
 #'
 #' @param _model_module The namespace of the model.
