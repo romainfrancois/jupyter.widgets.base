@@ -39,6 +39,15 @@ arg_match_or_empty <- function(arg, values = NULL, ..., multiple = FALSE, error_
   }
 }
 
+#' @inheritParams rlang::arg_match
+#' @rdname tools
+#' @export
+arg_match_or_null <- function(arg, values = NULL, ..., multiple = FALSE, error_arg = caller_arg(arg), error_call = caller_env()) {
+  if (is.null(arg)) NULL else {
+    rlang::arg_match(arg, values = values, ..., error_arg = error_arg, error_call = error_call)
+  }
+}
+
 #' @inheritParams assertthat::assert_that
 #' @rdname tools
 #' @export
