@@ -25,6 +25,10 @@ Collate:
     'Layout.R'
     'Style.R'
     'DOMWidget.R'
+    'jupyterwidgetmodels.R'
     'mime_bundle.R'
     'tools.R'
     'zzz.R'
+Depends: 
+    R (>= 2.10)
+LazyData: true
