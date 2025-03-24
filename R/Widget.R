@@ -45,6 +45,7 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
       rlang::check_dots_empty(call = error_call)
 
       private$handlers_ <- new.env()
+      private$check_state_env_ <- new.env()
       private$comm_ <- comm <- CommManager$new_comm("jupyter.widget")
 
       comm$on_message(function(request) {
@@ -93,6 +94,21 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
       private$state_[[name]]
     },
 
+    #' check a state
+    #'
+    #' @param name name
+    #' @param value value
+    #'
+    #' @return a value suitable for a state
+    check_state = function(name, value) {
+      fun <- private$check_state_env_[[name]]
+      if (!is.null(fun)) {
+        fun(value)
+      } else {
+        unbox(value)
+      }
+    },
+
     #' update states
     #'
     #' update state in the Widget object and send a comm
@@ -124,6 +140,7 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
     state_ = list(),
     comm_ = NULL,
     handlers_ = NULL,
+    check_state_env_ = NULL,
 
     handle = function(name, ...) {
       handler <- private$handlers_[[name]]
