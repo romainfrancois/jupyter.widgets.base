@@ -38,5 +38,13 @@ attributes <- map(models, \(x) {
 
 })
 
-jupyterwidgetmodels <- tibble(!!!view, !!!model, attributes = attributes)
+dom <- map_lgl(attributes, \(attr) {
+  "_dom_classes" %in% attr$name
+})
+
+attributes <- map(attributes, \(attr) {
+  filter(attr, !name %in% "_dom_classes")
+})
+
+jupyterwidgetmodels <- tibble(!!!view, !!!model, dom = dom, attributes = attributes)
 usethis::use_data(jupyterwidgetmodels, overwrite = TRUE)
