@@ -62,9 +62,8 @@ generate_active_bindings <- function(name = "Button", style = NULL, model_data, 
   lines <- glue(.trim = FALSE, "
     #' @field {attrs$name}
     #' {attrs$help}
-    {attrs$name} = function(x) if(missing(x)) private$state_[['{attrs$name}']] else self$update({attrs$name} = self$check_state('{attrs$name}', x))
-  ")
-  glue_collapse(sep = ",", paste0("    ", lines))
+    {attrs$name} = function(x) if(missing(x)) private$state_[['{attrs$name}']] else self$update({attrs$name} = self$check_state('{attrs$name}', x))")
+  glue_collapse(sep = ",\n", paste0("    ", lines))
 }
 
 
