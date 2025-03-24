@@ -1,8 +1,8 @@
 #' {{name}} widget
 #'
-#' @rdname {name}
+#' @rdname {{name}}
 #' @export
-jupyter.widget.{name} <- R6::R6Class("jupyter.widget.{{name}}", inherit = jupyter.widget.DOMWidget,
+jupyter.widget.{{name}} <- R6::R6Class("jupyter.widget.{{name}}", inherit = jupyter.widget.DOMWidget,
   public = list(
 
 {{initialize_params_roxygen}}
