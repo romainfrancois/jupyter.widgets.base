@@ -43,7 +43,12 @@ dom <- map_lgl(attributes, \(attr) {
 })
 
 attributes <- map(attributes, \(attr) {
-  filter(attr, !name %in% "_dom_classes")
+  is_dom <- "_dom_classes" %in% attr$name
+  out <- filter(attr, !name %in% "_dom_classes")
+  if (is_dom) {
+    out <- filter(out, !name %in% c("layout", "style", "tabbable", "tooltip"))
+  }
+  out
 })
 
 jupyterwidgetmodels <- tibble(!!!view, !!!model, dom = dom, attributes = attributes)
