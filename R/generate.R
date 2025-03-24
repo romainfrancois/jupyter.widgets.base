@@ -18,6 +18,7 @@ generate_dom_widget <- function(name = "Button", style = "ButtonStyle", error_ca
   initialize_params_roxygen  <- generate_initialize_params_roxygen(name = name, style = style, model_data = model_data, error_call = error_call)
   initialize_params_defaults <- generate_initialize_params_defaults(name = name, style = style, model_data = model_data, error_call = error_call)
   init_params_state          <- generate_init_params_state(name = name, style = style, model_data = model_data, error_call = error_call)
+  active_bindings            <- generate_active_bindings(name = name, style = style, model_data = model_data, error_call = error_call)
 
   glue(template, .trim = FALSE, .open = "{{", .close = "}}")
 }
@@ -54,6 +55,18 @@ generate_init_params_state <- function(name = "Button", style = NULL, model_data
   )
   glue_collapse(sep = ",\n", paste0("        ", lines))
 }
+
+generate_active_bindings <- function(name = "Button", style = NULL, model_data, error_call = caller_env()) {
+  attrs <- model_data$attributes[[1]]
+
+  lines <- glue(.trim = FALSE, "
+    #' @field {attrs$name}
+    #' {attrs$help}
+    {attrs$name} = function(x) if(missing(x)) private$state_[['{attrs$name}']] else self$update({attrs$name} = self$check_state('{attrs$name}', x))
+  ")
+  glue_collapse(sep = ",", paste0("    ", lines))
+}
+
 
 extract_model_data <- function(name, error_call = caller_env()) {
   data <- filter(jupyter.widgets.base::jupyterwidgetmodels, `_model_name` == paste0(name, "Model"))
