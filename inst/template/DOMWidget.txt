@@ -1,0 +1,43 @@
+#' {{name}} widget
+#'
+#' @rdname {name}
+#' @export
+jupyter.widget.{name} <- R6::R6Class("jupyter.widget.{{name}}", inherit = jupyter.widget.DOMWidget,
+  public = list(
+
+{{initialize_params_roxygen}}
+    #'
+    #' @param ... See [jupyter.widgets.base::DOMWidget]
+    #' @param error_call see [rlang::args_error_context()]
+    #'
+    #' @return a new 'jupyter.widget.{{name}}' widget
+    initialize = function(
+{{initialize_params_defaults}},
+
+      ...,
+      error_call = caller_env()
+    )
+    {
+      private$state_ <- update_list(private$state_,
+{{init_params_state}}
+      )
+
+      super$initialize(
+        style           = style,
+
+        `_model_module` = "{{model_module}}",
+        `_model_name`   = "{{model_name}}",
+        `_view_module`  = "{{view_module}}",
+        `_view_name`    = "{{view_name}}",
+
+        ...,
+        error_call = error_call
+      )
+
+    }
+  ),
+
+  active = list(
+#TODO
+  )
+)
