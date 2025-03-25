@@ -111,6 +111,14 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
       }
     },
 
+    #' Set a state checker
+    #'
+    #' @param name name of the state
+    #' @param fun function that takes a single parameter, checks it and returns something that is suitable for a state
+    set_state_check = function(name, fun) {
+      private$check_state_env_[[name]] <- fun
+    },
+
     #' update states
     #'
     #' update state in the Widget object and send a comm
@@ -152,7 +160,7 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
     },
 
     before_comm_open = function(){},
-    after_comm_open = function(){},
+    after_comm_open = function(){}
   ),
 
   active = list(
