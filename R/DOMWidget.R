@@ -54,12 +54,12 @@ jupyter.widget.DOMWidget <- R6Class("jupyter.widget.DOMWidget",
       private$state_ <- update_list(private$state_,
         tabbable = unbox(isTRUE(tabbable)),
         tooltip  = unbox(ensure(tooltip, null_or(is.string))),
-        layout   = unbox(glue("IPY_MODEL_{layout$comm$id}")),
+        layout   = unbox(paste0("IPY_MODEL_", layout$comm$id)),
         `_dom_classes` = `_dom_classes`
       )
 
       if (!is.null(style)) {
-        private$state_$style <- unbox(glue("IPY_MODEL_{style$comm$id}"))
+        private$state_$style <- unbox(paste0("IPY_MODEL_", style$comm$id))
       }
 
       super$initialize(
