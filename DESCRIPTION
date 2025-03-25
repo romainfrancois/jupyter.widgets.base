@@ -24,7 +24,6 @@ Collate:
     'Layout.R'
     'Style.R'
     'DOMWidget.R'
-    'jupyterwidgetmodels.R'
     'mime_bundle.R'
     'tools.R'
     'zzz.R'
