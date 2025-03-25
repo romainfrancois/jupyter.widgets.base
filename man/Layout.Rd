@@ -31,12 +31,11 @@ Layout class
 }
 }
 \if{html}{\out{
-<details><summary>Inherited methods</summary>
+<details open><summary>Inherited methods</summary>
 <ul>
 <li><span class="pkg-link" data-pkg="jupyter.widgets.base" data-topic="jupyter.widget.Widget" data-id="check_state"><a href='../../jupyter.widgets.base/html/jupyter.widget.Widget.html#method-jupyter.widget.Widget-check_state'><code>jupyter.widgets.base::jupyter.widget.Widget$check_state()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="jupyter.widgets.base" data-topic="jupyter.widget.Widget" data-id="on_custom"><a href='../../jupyter.widgets.base/html/jupyter.widget.Widget.html#method-jupyter.widget.Widget-on_custom'><code>jupyter.widgets.base::jupyter.widget.Widget$on_custom()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="jupyter.widgets.base" data-topic="jupyter.widget.Widget" data-id="on_update"><a href='../../jupyter.widgets.base/html/jupyter.widget.Widget.html#method-jupyter.widget.Widget-on_update'><code>jupyter.widgets.base::jupyter.widget.Widget$on_update()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="jupyter.widgets.base" data-topic="jupyter.widget.Widget" data-id="set_state_check"><a href='../../jupyter.widgets.base/html/jupyter.widget.Widget.html#method-jupyter.widget.Widget-set_state_check'><code>jupyter.widgets.base::jupyter.widget.Widget$set_state_check()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="jupyter.widgets.base" data-topic="jupyter.widget.Widget" data-id="state"><a href='../../jupyter.widgets.base/html/jupyter.widget.Widget.html#method-jupyter.widget.Widget-state'><code>jupyter.widgets.base::jupyter.widget.Widget$state()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="jupyter.widgets.base" data-topic="jupyter.widget.Widget" data-id="update"><a href='../../jupyter.widgets.base/html/jupyter.widget.Widget.html#method-jupyter.widget.Widget-update'><code>jupyter.widgets.base::jupyter.widget.Widget$update()</code></a></span></li>
 </ul>

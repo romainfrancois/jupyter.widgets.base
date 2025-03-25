@@ -54,7 +54,6 @@ Widget
 \item \href{#method-jupyter.widget.Widget-new}{\code{jupyter.widget.Widget$new()}}
 \item \href{#method-jupyter.widget.Widget-state}{\code{jupyter.widget.Widget$state()}}
 \item \href{#method-jupyter.widget.Widget-check_state}{\code{jupyter.widget.Widget$check_state()}}
-\item \href{#method-jupyter.widget.Widget-set_state_check}{\code{jupyter.widget.Widget$set_state_check()}}
 \item \href{#method-jupyter.widget.Widget-update}{\code{jupyter.widget.Widget$update()}}
 \item \href{#method-jupyter.widget.Widget-on_update}{\code{jupyter.widget.Widget$on_update()}}
 \item \href{#method-jupyter.widget.Widget-on_custom}{\code{jupyter.widget.Widget$on_custom()}}
@@ -146,29 +145,10 @@ check a state
 }
 \subsection{Returns}{
 a value suitable for a state
-Set a state checker
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-jupyter.widget.Widget-set_state_check"></a>}}
-\if{latex}{\out{\hypertarget{method-jupyter.widget.Widget-set_state_check}{}}}
-\subsection{Method \code{set_state_check()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{jupyter.widget.Widget$set_state_check(name, fun)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{name}}{name of the state}
-
-\item{\code{fun}}{function that takes a single parameter, checks it and returns something that is suitable for a state
 update states
 
 update state in the Widget object and send a comm
-message to update the state in the front end too}
-}
-\if{html}{\out{</div>}}
+message to update the state in the front end too
 }
 }
 \if{html}{\out{<hr>}}

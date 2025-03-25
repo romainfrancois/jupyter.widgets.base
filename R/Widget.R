@@ -111,14 +111,6 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
       }
     },
 
-    #' Set a state checker
-    #'
-    #' @param name name of the state
-    #' @param fun function that takes a single parameter, checks it and returns something that is suitable for a state
-    set_state_check = function(name, fun) {
-      private$check_state_env_[[name]] <- fun
-    },
-
     #' update states
     #'
     #' update state in the Widget object and send a comm
@@ -202,6 +194,17 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
     `_view_name`            = function() private$state_[["_view_name"]]
   )
 )
+
+#' Set a state checker
+#'
+#' @param class widget class
+#' @param name name of the state
+#' @param fun function that takes a single parameter, checks it and returns something that is suitable for a state
+#'
+#' @export
+set_widget_state_check = function(class, name, fun) {
+  Person$.__enclos_env__$private[[name]] <- fun
+}
 
 #' Widget
 #'
