@@ -203,7 +203,7 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
 #'
 #' @export
 set_widget_state_check = function(class, name, fun) {
-  Person$.__enclos_env__$private[[name]] <- fun
+  class$.__enclos_env__$private[[name]] <- fun
 }
 
 #' Widget
