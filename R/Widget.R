@@ -45,6 +45,7 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
       rlang::check_dots_empty(call = error_call)
 
       private$handlers_ <- new.env()
+      private$check_state_env_ <- new.env()
       private$comm_ <- comm <- CommManager$new_comm("jupyter.widget")
 
       comm$on_message(function(request) {
@@ -78,10 +79,12 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
       if (isTRUE(getOption("comm.verbose"))) {
         print(jsonlite::prettify(jsonlite::toJSON(data)))
       }
+      private$before_comm_open()
       comm$open(
         data = data,
         metadata = list(version = "2.1.0")
       )
+      private$after_comm_open()
 
     },
 
@@ -91,6 +94,21 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
     #' @return the current value of the state
     state = function(name) {
       private$state_[[name]]
+    },
+
+    #' check a state
+    #'
+    #' @param name name
+    #' @param value value
+    #'
+    #' @return a value suitable for a state
+    check_state = function(name, value) {
+      fun <- private$check_state_env_[[name]]
+      if (!is.null(fun)) {
+        fun(value)
+      } else {
+        unbox(value)
+      }
     },
 
     #' update states
@@ -107,30 +125,31 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
       )
     },
 
-    #' Setup a handler to handle "update" messages from the front end
-    #' @param handler handler function
-    on_update = function(handler) {
-      private$handlers_[["update"]] <- handler
-    },
-
-    #' Setup a handler to handle "update" messages from the front end
-    #' @param handler handler function
-    on_custom = function(handler) {
-      private$handlers_[["custom"]] <- handler
+    #' Setup handler for specific messages
+    #'
+    #' @param name name of the message: update, custom, ...
+    #' @param handler function to handle the message
+    on = function(name, handler) {
+      private$handlers_[[name]] <- handler
     }
+
   ),
 
   private = list(
     state_ = list(),
     comm_ = NULL,
     handlers_ = NULL,
+    check_state_env_ = NULL,
 
     handle = function(name, ...) {
       handler <- private$handlers_[[name]]
       if (!is.null(handler)) {
         handler(...)
       }
-    }
+    },
+
+    before_comm_open = function(){},
+    after_comm_open = function(){}
   ),
 
   active = list(
@@ -172,6 +191,17 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
     `_view_name`            = function() private$state_[["_view_name"]]
   )
 )
+
+#' Set a state checker
+#'
+#' @param class widget class
+#' @param name name of the state
+#' @param fun function that takes a single parameter, checks it and returns something that is suitable for a state
+#'
+#' @export
+set_widget_state_check = function(class, name, fun) {
+  class$.__enclos_env__$private[[name]] <- fun
+}
 
 #' Widget
 #'
