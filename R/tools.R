@@ -60,3 +60,24 @@ ensure <- function(x, fun = assertthat::is.string, ..., msg = NULL) {
 namedlist <- function() {
   `names<-`(list(), character())
 }
+
+#' Create a state check function for a given set of accepted values
+#'
+#' @param values accepted values
+#' @param allow_empty TRUE if "" is accepted
+#' @param allow_null TRUE if NULL is accepted
+#'
+#' @export
+unbox_one_of <- function(values, allow_empty = FALSE, allow_null = FALSE) {
+  matcher <- if (allow_empty) {
+    jupyter.widgets.base::arg_match_or_empty
+  } else if (allow_null) {
+    jupyter.widgets.base::arg_match_or_null
+  } else {
+    rlang::arg_match
+  }
+
+  function(value) {
+    unbox(matcher(value, values = values))
+  }
+}
