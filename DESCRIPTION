@@ -13,10 +13,6 @@ URL: https://github.com/romainfrancois/jupyter.widgets.base
 BugReports: https://github.com/romainfrancois/jupyter.widgets.base/issues
 Imports: 
     assertthat,
-    cli,
-    constructive,
-    dplyr,
-    glue,
     hera,
     jsonlite,
     purrr,
@@ -28,7 +24,6 @@ Collate:
     'Layout.R'
     'Style.R'
     'DOMWidget.R'
-    'generate.R'
     'jupyterwidgetmodels.R'
     'mime_bundle.R'
     'tools.R'
