@@ -123,7 +123,7 @@ generate_forward_factory_to_constructor <- function(name = "Button", style = NUL
 }
 
 extract_model_data <- function(name, error_call = caller_env()) {
-  data <- filter(jupyter.widgets.base::jupyterwidgetmodels, `_model_name` == paste0(name, "Model"))
+  data <- filter(jupyter.widgets.base::jupyterwidgetmodels, .data[["_model_name"]] == paste0(name, "Model"))
   if (nrow(data) != 1L) {
     cli::cli_abort(c("Wrong `model` {model}"), call = error_call)
   }
