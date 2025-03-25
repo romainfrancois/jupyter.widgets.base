@@ -125,17 +125,14 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
       )
     },
 
-    #' Setup a handler to handle "update" messages from the front end
-    #' @param handler handler function
-    on_update = function(handler) {
-      private$handlers_[["update"]] <- handler
-    },
-
-    #' Setup a handler to handle "update" messages from the front end
-    #' @param handler handler function
-    on_custom = function(handler) {
-      private$handlers_[["custom"]] <- handler
+    #' Setup handler for specific messages
+    #'
+    #' @param name name of the message: update, custom, ...
+    #' @param handler function to handle the message
+    on = function(name, handler) {
+      private$handlers_[[name]] <- handler
     }
+
   ),
 
   private = list(

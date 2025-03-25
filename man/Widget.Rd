@@ -55,8 +55,7 @@ Widget
 \item \href{#method-jupyter.widget.Widget-state}{\code{jupyter.widget.Widget$state()}}
 \item \href{#method-jupyter.widget.Widget-check_state}{\code{jupyter.widget.Widget$check_state()}}
 \item \href{#method-jupyter.widget.Widget-update}{\code{jupyter.widget.Widget$update()}}
-\item \href{#method-jupyter.widget.Widget-on_update}{\code{jupyter.widget.Widget$on_update()}}
-\item \href{#method-jupyter.widget.Widget-on_custom}{\code{jupyter.widget.Widget$on_custom()}}
+\item \href{#method-jupyter.widget.Widget-on}{\code{jupyter.widget.Widget$on()}}
 \item \href{#method-jupyter.widget.Widget-clone}{\code{jupyter.widget.Widget$clone()}}
 }
 }
@@ -163,40 +162,25 @@ message to update the state in the front end too
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{...}}{states
-Setup a handler to handle "update" messages from the front end}
+Setup handler for specific messages}
 }
 \if{html}{\out{</div>}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-jupyter.widget.Widget-on_update"></a>}}
-\if{latex}{\out{\hypertarget{method-jupyter.widget.Widget-on_update}{}}}
-\subsection{Method \code{on_update()}}{
+\if{html}{\out{<a id="method-jupyter.widget.Widget-on"></a>}}
+\if{latex}{\out{\hypertarget{method-jupyter.widget.Widget-on}{}}}
+\subsection{Method \code{on()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{jupyter.widget.Widget$on_update(handler)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{jupyter.widget.Widget$on(name, handler)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{handler}}{handler function
-Setup a handler to handle "update" messages from the front end}
-}
-\if{html}{\out{</div>}}
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-jupyter.widget.Widget-on_custom"></a>}}
-\if{latex}{\out{\hypertarget{method-jupyter.widget.Widget-on_custom}{}}}
-\subsection{Method \code{on_custom()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{jupyter.widget.Widget$on_custom(handler)}\if{html}{\out{</div>}}
-}
+\item{\code{name}}{name of the message: update, custom, ...}
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{handler}}{handler function}
+\item{\code{handler}}{function to handle the message}
 }
 \if{html}{\out{</div>}}
 }
