@@ -79,10 +79,12 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
       if (isTRUE(getOption("comm.verbose"))) {
         print(jsonlite::prettify(jsonlite::toJSON(data)))
       }
+      private$before_comm_open()
       comm$open(
         data = data,
         metadata = list(version = "2.1.0")
       )
+      private$after_comm_open()
 
     },
 
@@ -147,7 +149,10 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
       if (!is.null(handler)) {
         handler(...)
       }
-    }
+    },
+
+    before_comm_open = function(){},
+    after_comm_open = function(){},
   ),
 
   active = list(
