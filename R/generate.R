@@ -15,10 +15,16 @@ generate_dom_widget <- function(name = "Button", style = "ButtonStyle", error_ca
   view_module  <- model_data$`_view_module`
   view_name    <- model_data$`_view_name`
 
-  initialize_params_roxygen  <- generate_initialize_params_roxygen(name = name, style = style, model_data = model_data, error_call = error_call)
-  initialize_params_defaults <- generate_initialize_params_defaults(name = name, style = style, model_data = model_data, error_call = error_call)
-  init_params_state          <- generate_init_params_state(name = name, style = style, model_data = model_data, error_call = error_call)
-  active_bindings            <- generate_active_bindings(name = name, style = style, model_data = model_data, error_call = error_call)
+  initialize_params_roxygen      <- generate_initialize_params_roxygen(name = name, style = style, model_data = model_data, error_call = error_call)
+  factory_params_roxygen         <- generate_factory_params_roxygen(name = name, style = style, model_data = model_data, error_call = error_call)
+
+  initialize_params_defaults     <- generate_initialize_params_defaults(name = name, style = style, model_data = model_data, error_call = error_call)
+  factory_params_defaults        <- generate_factory_params_defaults(name = name, style = style, model_data = model_data, error_call = error_call)
+
+  forward_factory_to_constructor <- generate_forward_factory_to_constructor(name = name, style = style, model_data = model_data, error_call = error_call)
+
+  init_params_state              <- generate_init_params_state(name = name, style = style, model_data = model_data, error_call = error_call)
+  active_bindings                <- generate_active_bindings(name = name, style = style, model_data = model_data, error_call = error_call)
 
   glue(template, .trim = FALSE, .open = "{{", .close = "}}")
 }
@@ -35,6 +41,21 @@ generate_initialize_params_roxygen <- function(name = "Button", style = NULL, mo
   glue_collapse(sep = "\n", paste0("    ", lines))
 }
 
+generate_factory_params_roxygen <- function(name = "Button", style = NULL, model_data, error_call = caller_env()) {
+  attrs <- model_data$attributes[[1]]
+
+  lines <- c(
+    glue("#' @param {attrs$name} {attrs$help}"),
+    "#' ",
+    if (!is.null(style)) {
+      glue("#' @param style Must inherit from [jupyter.widget.{style}].")
+    },
+    "#' "
+  )
+  glue_collapse(sep = "\n", lines)
+}
+
+
 generate_initialize_params_defaults <- function(name = "Button", style = NULL, model_data, error_call = caller_env()) {
   attrs <- model_data$attributes[[1]]
 
@@ -46,6 +67,19 @@ generate_initialize_params_defaults <- function(name = "Button", style = NULL, m
   )
   glue_collapse(sep = ",\n", paste0("      ", lines))
 }
+
+generate_factory_params_defaults <- function(name = "Button", style = NULL, model_data, error_call = caller_env()) {
+  attrs <- model_data$attributes[[1]]
+
+  lines <- c(
+    glue("{attrs$name} = NULL"),
+    if (!is.null(style)) {
+      glue("style = {style}()")
+    }
+  )
+  glue_collapse(sep = ",\n", paste0("  ", lines))
+}
+
 
 generate_init_params_state <- function(name = "Button", style = NULL, model_data, error_call = caller_env()) {
   attrs <- model_data$attributes[[1]]
@@ -66,6 +100,19 @@ generate_active_bindings <- function(name = "Button", style = NULL, model_data, 
   glue_collapse(sep = ",\n", paste0("    ", lines))
 }
 
+generate_forward_factory_to_constructor <- function(name = "Button", style = NULL, model_data, error_call = caller_env()) {
+  attrs <- model_data$attributes[[1]]
+
+  lines <- c(
+    glue("{attrs$name} = {attrs$name}"),
+    if (!is.null(style)) {
+      "style = style"
+    },
+    "...",
+    "error_call = error_call"
+  )
+  glue_collapse(sep = ",\n", paste0("    ", lines))
+}
 
 extract_model_data <- function(name, error_call = caller_env()) {
   data <- filter(jupyter.widgets.base::jupyterwidgetmodels, `_model_name` == paste0(name, "Model"))

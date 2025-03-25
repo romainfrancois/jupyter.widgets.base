@@ -1,6 +1,5 @@
 #' {{name}} widget
 #'
-#' @rdname {{name}}
 #' @export
 jupyter.widget.{{name}} <- R6::R6Class("jupyter.widget.{{name}}", inherit = jupyter.widget.DOMWidget,
   public = list(
@@ -41,3 +40,20 @@ jupyter.widget.{{name}} <- R6::R6Class("jupyter.widget.{{name}}", inherit = jupy
 {{active_bindings}}
   )
 )
+
+#' {{name}} widget
+#'
+{{factory_params_roxygen}}
+#' @param ... forwarded to [jupyter.widgets.base::jupyter.widget.DOMWidget] constructor
+#' @inheritParams rlang::args_error_context
+#'
+#' @export
+{{name}} <- function(
+{{factory_params_defaults}},
+  ...,
+  error_call = current_env()
+){
+  jupyter.widget.{{name}}$new(
+{{forward_factory_to_constructor}}
+  )
+}
