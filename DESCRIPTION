@@ -14,10 +14,12 @@ BugReports: https://github.com/romainfrancois/jupyter.widgets.base/issues
 Imports: 
     assertthat,
     cli,
+    constructive,
     dplyr,
     glue,
     hera,
     jsonlite,
+    purrr,
     R6,
     rlang
 Collate: 

@@ -55,12 +55,19 @@ generate_factory_params_roxygen <- function(name = "Button", style = NULL, model
   glue_collapse(sep = "\n", lines)
 }
 
+extract_defaults <- function(attrs) {
+  with(attrs, map2_chr(default, allow_none, \(default, allow_none) {
+    # TODO: this will expand as we discover various default value possibilities
+    constructive::construct(default)$code
+  }))
+}
 
 generate_initialize_params_defaults <- function(name = "Button", style = NULL, model_data, error_call = caller_env()) {
   attrs <- model_data$attributes[[1]]
+  defaults <- extract_defaults(attrs)
 
   lines <- c(
-    glue("{attrs$name} = NULL"),
+    glue("{attrs$name} = {defaults}"),
     if (!is.null(style)) {
       glue("style = {style}()")
     }
@@ -70,9 +77,10 @@ generate_initialize_params_defaults <- function(name = "Button", style = NULL, m
 
 generate_factory_params_defaults <- function(name = "Button", style = NULL, model_data, error_call = caller_env()) {
   attrs <- model_data$attributes[[1]]
+  defaults <- extract_defaults(attrs)
 
   lines <- c(
-    glue("{attrs$name} = NULL"),
+    glue("{attrs$name} = {defaults}"),
     if (!is.null(style)) {
       glue("style = {style}()")
     }
