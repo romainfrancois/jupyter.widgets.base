@@ -47,6 +47,7 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
       rlang::check_dots_empty(call = error_call)
 
       private$handlers_ <- new.env()
+      private$observers_ <- new.env()
       private$comm_ <- comm <- CommManager$new_comm("jupyter.widget")
 
       comm$on_message(function(request) {
@@ -57,9 +58,11 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
           method,
           update = {
             state <- data$state
-            private$state_ <- replace(private$state_, names(state), state)
+            old_state <- private$state_
+            private$call_observers(new_state = state, old_state = old_state)
             private$handle("update", state)
 
+            private$state_ <- replace(old_state, names(state), state)
             comm$send(
               data = list(
                 method = "echo_update", state = state, buffer_paths = list()
@@ -69,7 +72,8 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
 
           custom = {
             private$handle("custom", data$content)
-          })
+          }
+        )
       })
 
       comm$on_close(function(request) {
@@ -87,6 +91,18 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
       )
       private$after_comm_open()
 
+    },
+
+    #' Set an observer
+    #'
+    #' @param name name of the property to observe
+    #' @param handler function to call when the property changes
+    #'
+    #' the function is called with the parameters type, name, old, new and owner
+    #' if you only care about some, you can use ...
+    #' e.g. $observe("value", function(new, ...) { print(new) })
+    observe = function(name, handler) {
+      private$observers_[[name]] <- handler
     },
 
     #' get a state
@@ -129,11 +145,15 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
     #'
     #' @param ... states
     update = function(...) {
+      old_state <- private$state_
       state <- list2(...)
 
       private$comm_$send(
         data = list(method = "update", state = state, buffer_paths = list())
       )
+
+      private$call_observers(new_state = state, old_state = old_state)
+      private$state_ <- replace(private$state_, names(state), state)
     },
 
     #' Setup handler for specific messages
@@ -150,6 +170,7 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
     state_ = list(),
     comm_ = NULL,
     handlers_ = NULL,
+    observers_ = NULL,
 
     handle = function(name, ...) {
       handler <- private$handlers_[[name]]
@@ -159,7 +180,23 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
     },
 
     before_comm_open = function(){},
-    after_comm_open = function(){}
+    after_comm_open = function(){},
+
+    call_observers = function(new_state, old_state) {
+      names <- names(new_state)
+      for (name in names) {
+        observer <- private$observers_[[name]]
+        if (!is.null(observer)) {
+          observer(
+            type  = "change",
+            name  = name,
+            old   = old_state[[name]],
+            new   = new_state[[name]],
+            owner = self
+          )
+        }
+      }
+    }
   ),
 
   active = list(

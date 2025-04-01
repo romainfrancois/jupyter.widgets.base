@@ -52,6 +52,7 @@ Widget
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-jupyter.widget.Widget-new}{\code{jupyter.widget.Widget$new()}}
+\item \href{#method-jupyter.widget.Widget-observe}{\code{jupyter.widget.Widget$observe()}}
 \item \href{#method-jupyter.widget.Widget-state}{\code{jupyter.widget.Widget$state()}}
 \item \href{#method-jupyter.widget.Widget-check_state}{\code{jupyter.widget.Widget$check_state()}}
 \item \href{#method-jupyter.widget.Widget-update}{\code{jupyter.widget.Widget$update()}}
@@ -102,7 +103,30 @@ Widget
 }
 \subsection{Returns}{
 a new \code{jupyter.widget.Widget} object
-get a state
+Set an observer
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-jupyter.widget.Widget-observe"></a>}}
+\if{latex}{\out{\hypertarget{method-jupyter.widget.Widget-observe}{}}}
+\subsection{Method \code{observe()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{jupyter.widget.Widget$observe(name, handler)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{name}}{name of the property to observe}
+
+\item{\code{handler}}{function to call when the property changes
+
+the function is called with the parameters type, name, old, new and owner
+if you only care about some, you can use ...
+e.g. $observe("value", function(new, ...) { print(new) })
+get a state}
+}
+\if{html}{\out{</div>}}
 }
 }
 \if{html}{\out{<hr>}}

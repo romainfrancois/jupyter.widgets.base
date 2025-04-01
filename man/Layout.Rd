@@ -34,6 +34,7 @@ Layout class
 <details open><summary>Inherited methods</summary>
 <ul>
 <li><span class="pkg-link" data-pkg="jupyter.widgets.base" data-topic="jupyter.widget.Widget" data-id="check_state"><a href='../../jupyter.widgets.base/html/jupyter.widget.Widget.html#method-jupyter.widget.Widget-check_state'><code>jupyter.widgets.base::jupyter.widget.Widget$check_state()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="jupyter.widgets.base" data-topic="jupyter.widget.Widget" data-id="observe"><a href='../../jupyter.widgets.base/html/jupyter.widget.Widget.html#method-jupyter.widget.Widget-observe'><code>jupyter.widgets.base::jupyter.widget.Widget$observe()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="jupyter.widgets.base" data-topic="jupyter.widget.Widget" data-id="on"><a href='../../jupyter.widgets.base/html/jupyter.widget.Widget.html#method-jupyter.widget.Widget-on'><code>jupyter.widgets.base::jupyter.widget.Widget$on()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="jupyter.widgets.base" data-topic="jupyter.widget.Widget" data-id="state"><a href='../../jupyter.widgets.base/html/jupyter.widget.Widget.html#method-jupyter.widget.Widget-state'><code>jupyter.widgets.base::jupyter.widget.Widget$state()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="jupyter.widgets.base" data-topic="jupyter.widget.Widget" data-id="update"><a href='../../jupyter.widgets.base/html/jupyter.widget.Widget.html#method-jupyter.widget.Widget-update'><code>jupyter.widgets.base::jupyter.widget.Widget$update()</code></a></span></li>
