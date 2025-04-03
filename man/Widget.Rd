@@ -154,7 +154,7 @@ check a state
 \if{latex}{\out{\hypertarget{method-jupyter.widget.Widget-check_state}{}}}
 \subsection{Method \code{check_state()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{jupyter.widget.Widget$check_state(name, value)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{jupyter.widget.Widget$check_state(name, value, error_call = caller_env())}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -163,6 +163,8 @@ check a state
 \item{\code{name}}{name}
 
 \item{\code{value}}{value}
+
+\item{\code{error_call}}{see \code{\link[rlang:args_error_context]{rlang::args_error_context()}}}
 }
 \if{html}{\out{</div>}}
 }
