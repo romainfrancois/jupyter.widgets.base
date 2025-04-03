@@ -96,11 +96,25 @@ jupyter.widget.DOMWidget <- R6Class("jupyter.widget.DOMWidget",
 
     #' @field layout
     #' the [Layout()] for this widget
-    layout = function() layout_,
+    layout = function(x) {
+      if (missing(x)) {
+        private$layout_
+      } else {
+        private$layout_ <- x
+        self$update(layout = unbox(paste0("IPY_MODEL_", x$comm$id)))
+      }
+    },
 
     #' @field style
     #' the [Style()] for this widget
-    style  = function() style_,
+    style  = function(x) {
+      if (missing(x)) {
+        private$style_
+      } else {
+        private$style_ <- x
+        self$update(style = unbox(paste0("IPY_MODEL_", x$comm$id)))
+      }
+    },
 
     #' @field tabbable
     #' Is this widget tabbable. Read/Write
@@ -108,7 +122,7 @@ jupyter.widget.DOMWidget <- R6Class("jupyter.widget.DOMWidget",
 
     #' @field tooltip
     #' tooltip. Read/Write
-    tooltip  = function(x) if (missing(x)) private$state_[["tooltip"]] else self$update(tooltip = x),
+    tooltip  = function(x) if (missing(x)) private$state_[["tooltip"]] else self$update(tooltip = unbox(x)),
 
     #' @field _dom_classes
     #' DOM classes. Read only
