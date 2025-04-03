@@ -21,13 +21,18 @@ a DOM Widget
 \section{Super class}{
 \code{\link[jupyter.widgets.base:jupyter.widget.Widget]{jupyter.widgets.base::jupyter.widget.Widget}} -> \code{jupyter.widget.DOMWidget}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{style}}{the \code{\link[=Style]{Style()}} for this widget}
+
+\item{\code{layout}}{the \code{\link[=Layout]{Layout()}} for this widget}
+}
+\if{html}{\out{</div>}}
+}
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
 \describe{
-\item{\code{layout}}{the \code{\link[=Layout]{Layout()}} for this widget}
-
-\item{\code{style}}{the \code{\link[=Style]{Style()}} for this widget}
-
 \item{\code{tabbable}}{Is this widget tabbable. Read/Write}
 
 \item{\code{tooltip}}{tooltip. Read/Write}

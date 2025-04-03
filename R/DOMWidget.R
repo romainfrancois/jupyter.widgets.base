@@ -12,6 +12,14 @@ jupyter.widget.DOMWidget <- R6Class("jupyter.widget.DOMWidget",
 
   public = list(
 
+    #' @field style
+    #' the [Style()] for this widget
+    style  = NULL,
+
+    #' @field layout
+    #' the [Layout()] for this widget
+    layout = NULL,
+
     #' @param layout a [Layout()]
     #' @param style a [Style()]
     #' @param tabbable is the widget tabbable
@@ -48,8 +56,8 @@ jupyter.widget.DOMWidget <- R6Class("jupyter.widget.DOMWidget",
       ...,
       error_call = caller_env()
     ) {
-      private$layout_ <- layout
-      private$style_  <- style
+      self$layout <- layout
+      self$style  <- style
 
       private$state_ <- update_list(private$state_,
         tabbable = unbox(isTRUE(tabbable)),
@@ -93,15 +101,6 @@ jupyter.widget.DOMWidget <- R6Class("jupyter.widget.DOMWidget",
   ),
 
   active = list(
-
-    #' @field layout
-    #' the [Layout()] for this widget
-    layout = function() private$layout_,
-
-    #' @field style
-    #' the [Style()] for this widget
-    style  = function() private$style_,
-
     #' @field tabbable
     #' Is this widget tabbable. Read/Write
     tabbable = function(x) if (missing(x)) private$state_[["tabbable"]] else self$update(tabbable = unbox(x)),
@@ -116,8 +115,7 @@ jupyter.widget.DOMWidget <- R6Class("jupyter.widget.DOMWidget",
   ),
 
   private = list(
-    layout_ = NULL,
-    style_  = NULL
+    layout_ = NULL
   )
 )
 
