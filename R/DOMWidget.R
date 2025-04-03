@@ -96,11 +96,11 @@ jupyter.widget.DOMWidget <- R6Class("jupyter.widget.DOMWidget",
 
     #' @field layout
     #' the [Layout()] for this widget
-    layout = function() layout_,
+    layout = function() private$layout_,
 
     #' @field style
     #' the [Style()] for this widget
-    style  = function() style_,
+    style  = function() private$style_,
 
     #' @field tabbable
     #' Is this widget tabbable. Read/Write
