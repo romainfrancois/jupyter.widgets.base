@@ -117,25 +117,34 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
     #'
     #' @param name name
     #' @param value value
+    #' @param error_call see [rlang::args_error_context()]
     #'
     #' @return a value suitable for a state
-    check_state = function(name, value) {
-      env <- check_state_env[[ class(self)[[1]] ]]
+    check_state = function(name, value, error_call = caller_env()) {
+      class_name <- class(self)[[1]]
+      env <- check_state_env[[class_name]]
 
-      if (is.null(env)) {
-        unbox(value)
-      } else {
-        fun <- env[[name]]
-        if (!is.null(fun)) {
-          if ("widget" %in% names(formals(fun))) {
-            fun(value, widget = self)
-          } else {
-            fun(value)
-          }
-        } else {
+      tryCatch({
+        if (is.null(env)) {
           unbox(value)
+        } else {
+          fun <- env[[name]]
+          if (!is.null(fun)) {
+            if ("widget" %in% names(formals(fun))) {
+              fun(value, widget = self)
+            } else {
+              fun(value)
+            }
+          } else {
+            unbox(value)
+          }
         }
-      }
+      }, error = function(e) {
+        cli::cli_abort(call = error_call, parent = e, c(
+          "Error setting `{name}` in <{class_name}> widget."
+        ))
+      })
+
     },
 
     #' update states
