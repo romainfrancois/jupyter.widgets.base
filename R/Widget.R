@@ -48,6 +48,7 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
 
       private$handlers_ <- new.env()
       private$observers_ <- new.env()
+
       private$comm_ <- comm <- CommManager$new_comm("jupyter.widget")
 
       comm$on_message(function(request) {
@@ -77,7 +78,7 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
       })
 
       comm$on_close(function(request) {
-        private$handle("on_close", data$content)
+        private$handle("on_close", request$content)
       })
 
       data <- list(state = private$state_, buffer_paths = list())
@@ -90,7 +91,6 @@ jupyter.widget.Widget <- R6::R6Class("jupyter.widget.Widget",
         metadata = list(version = "2.1.0")
       )
       private$after_comm_open()
-
     },
 
     #' Set an observer
